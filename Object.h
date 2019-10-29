@@ -11,6 +11,8 @@ namespace SimLib
 		void* operator new[](unsigned int size) throw();
 		void operator delete[](void* p);
 		virtual ~Object() = 0;
+		bool operator== (const Object& proj);
+		bool operator!= (const Object& proj);
 
 	private:
 

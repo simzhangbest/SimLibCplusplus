@@ -2,41 +2,35 @@
 #include "LinkList.h"
 using namespace std;
 using namespace SimLib;
+
+class Test : public Object
+{
+	int i;
+public:
+	Test(int v = 0)
+	{
+		i = v;
+	}
+
+	bool operator== (const Test& t)
+	{
+		return (i == t.i);
+	}
+
+};
+
 int main()
 {
-	LinkList<int> list;
+	Test t1(1);
+	Test t2(2);
+	Test t3(3);
 
-	for (int i = 0; i < 5; i++)
-	{
-		list.insert(i);
-	}
+	LinkList<Test> list;
+	list.insert(t1);
+	list.insert(t2);
+	list.insert(t3);
 
-	for (int i = 0; i < 5; i++)
-	{
-		list.set(i, i*i);
-	}
-
-	for (int i = 0; i < list.length(); i++)
-	{
-		int v = 0;
-		list.get(i, v);
-		cout << v << endl;
-	}
-
-	for (int i = 0; i < list.length(); i++)
-	{
-		cout << list.get(i) << endl;
-	}
-
-	cout << "-------------------------" << endl;
-	list.remove(2);
-
-	for (int i = 0; i < list.length(); i++)
-	{
-		cout << list.get(i) << endl;
-	}
-
-
+	cout << list.find(t3) << endl;
 	return 0;
 	
 

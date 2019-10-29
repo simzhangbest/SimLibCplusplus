@@ -27,6 +27,16 @@ namespace SimLib
 	{
 
 	}
+
+	bool Object::operator== (const Object& proj)
+	{
+		return (this == &proj);
+	}
+
+	bool Object::operator!= (const Object& proj)
+	{
+		return (this != &proj);
+	}
 }
 
 

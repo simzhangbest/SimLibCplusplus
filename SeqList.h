@@ -103,6 +103,23 @@ namespace SimLib
 
 			virtual int capacity() const = 0;
 
+
+			int find(const T& e) const
+			{
+				int ret = -1;
+
+				for (int i = 0; i < m_length; i++)
+				{
+					if (m_array[i] == e)
+					{
+						ret = i;
+						break;
+					}
+
+				}
+				return ret;
+			}
+
 		};
 
 
