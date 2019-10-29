@@ -48,6 +48,9 @@
     <ClInclude Include="StaticList.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="StaticLinkList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Exception.cpp">

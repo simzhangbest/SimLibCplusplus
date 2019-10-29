@@ -1,37 +1,22 @@
 ﻿#include <iostream>
-#include "LinkList.h"
+#include "StaticLinkList.h"
 using namespace std;
 using namespace SimLib;
 
-class Test : public Object
-{
-	int i;
-public:
-	Test(int v = 0)
-	{
-		i = v;
-	}
-
-	bool operator== (const Test& t)
-	{
-		return (i == t.i);
-	}
-
-};
-
 int main()
 {
-	Test t1(1);
-	Test t2(2);
-	Test t3(3);
 
-	LinkList<Test> list;
-	list.insert(t1);
-	list.insert(t2);
-	list.insert(t3);
+	StaticLinkList<int,5> list;
+	for (int i = 0; i < 5; i++)
+	{
+		list.insert(0,i);
+	}
 
-	cout << list.find(t3) << endl;
+	for (list.move(0,3); !list.end(); list.next())
+	{
+		cout << list.current() << endl;
+	}
+
 	return 0;
-	
 
 }
