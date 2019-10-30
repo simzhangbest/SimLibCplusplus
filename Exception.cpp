@@ -8,7 +8,7 @@ namespace SimLib
 
 	void Exception::init(const char* message, const char* file, int line)
 	{
-		m_message = _strdup(message);//字符串复制到堆空间
+		m_message = (message ? _strdup(message) : nullptr);//字符串复制到堆空间
 
 		if (file != NULL)
 		{

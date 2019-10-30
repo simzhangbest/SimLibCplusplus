@@ -1,12 +1,12 @@
 ﻿#include <iostream>
-#include "StaticLinkList.h"
+#include "LinkList.h"
 using namespace std;
 using namespace SimLib;
 
 int main()
 {
 
-	StaticLinkList<int,5> list;
+	LinkList<int> list;
 	for (int i = 0; i < 5; i++)
 	{
 		list.insert(0,i);

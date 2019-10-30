@@ -100,8 +100,9 @@ namespace SimLib
 
 				Node* toDel = current->next;
 				current->next = toDel->next;
-				destroy(toDel);
 				m_length--;
+
+				destroy(toDel);
 			}
 
 			return ret;
@@ -155,11 +156,13 @@ namespace SimLib
 				Node* toDel = m_header.next;
 
 				m_header.next = toDel->next;
+				
+				m_length--;
 
 				destroy(toDel);
 			}
 
-			m_length = 0;
+			
 		}
 
 		~LinkList()
