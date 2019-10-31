@@ -1,22 +1,26 @@
 ﻿#include <iostream>
-#include "LinkList.h"
+#include "SmartPointer.h"
 using namespace std;
 using namespace SimLib;
 
+class Test : public Object
+{
+public:
+	Test()
+	{
+		cout << "test()" << endl;
+	}
+	~Test()
+	{
+		cout << "~test()" << endl;
+	}
+};
 int main()
 {
+	SmartPointer<Test> sp = new Test();
 
-	LinkList<int> list;
-	for (int i = 0; i < 5; i++)
-	{
-		list.insert(0,i);
-	}
+	SmartPointer<Test> spn;
+	spn = sp;
 
-	for (list.move(0,3); !list.end(); list.next())
-	{
-		cout << list.current() << endl;
-	}
-
-	return 0;
 
 }

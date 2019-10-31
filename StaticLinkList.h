@@ -1,5 +1,5 @@
 /*
-
+典型问题分析 3 也补充了
 #ifndef  STATICLINKLIST_H
 #define  STATICLINKLIST_H
 

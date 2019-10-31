@@ -1,21 +1,21 @@
 #pragma once
 #ifndef SMARTPOINTER_H
 #define SMARTPOINTER_H
-#include "Object.h"
+#include "Pointer.h"
 namespace SimLib
 {
 	template<typename T>
-	class SmartPointer : public Object
+	class SmartPointer : public Pointer<T>
 	{
 	public:
-		SmartPointer(T* p = nullptr)
+		SmartPointer(T* p = nullptr) : Pointer<T>(p)
 		{
-			m_pointer = p;
+
 		}
 
 		SmartPointer(const SmartPointer<T>& obj)
 		{
-			m_pointer = obj;
+			this->m_pointer = obj.m_pointer;
 			const_cast<SmartPointer<T>&>(obj).m_pointer = nullptr;
 		}
 
@@ -23,36 +23,22 @@ namespace SimLib
 		{
 			if (this != &obj)
 			{
-				delete m_pointer;
-				m_pointer = obj.m_pointer;
+				T* p = this->m_pointer;
+				
+				this->m_pointer = obj.m_pointer;
+
 				const_cast<SmartPointer<T>&>(obj).m_pointer = nullptr;
+
+				delete p;
 			}
 
 			return *this;
 		}
 
-		T* operator-> ()
-		{
-			return m_pointer;
-		}
-
-		T* operator* ()
-		{
-			return *m_pointer;
-		}
-
-		bool isNull()
-		{
-			return (m_pointer == nullptr);
-		}
-
 		~SmartPointer()
 		{
-			delete m_pointer;
+			delete this->m_pointer;
 		}
-
-	private:
-		T* m_pointer;
 	};
 }
 

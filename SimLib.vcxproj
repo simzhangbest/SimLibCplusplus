@@ -131,6 +131,8 @@
     <ClInclude Include="LinkList.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Pointer.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SeqList.h" />
     <ClInclude Include="SmartPointer.h" />
     <ClInclude Include="StaticArray.h" />
@@ -142,6 +144,9 @@
     <ClCompile Include="LinkList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SimLib.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
